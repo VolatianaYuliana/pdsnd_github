@@ -13,5 +13,5 @@ Use Python to understand U.S. bikeshare data. Calculate statistics and build int
 3. washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+- [https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) taught me something about **Markdown**"
+- [https://www.learndatasci.com/tutorials/python-pandas-tutorial-complete-introduction-for-beginners/](https://www.learndatasci.com/tutorials/python-pandas-tutorial-complete-introduction-for-beginners/) for the  **Pandas** package
