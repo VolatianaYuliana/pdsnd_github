@@ -182,13 +182,16 @@ def display_data(df):
     Display raw data upon request by the user
 
     """
+    # Ask user if he/she want to see raw data
     answer = input("Do you want to see raw data?(yes or no)\n").lower()
+    # Display data if answer is 'yes' and ask again if they want to see more lines
     if answer == 'yes':
         start_index = 0
         end_index = 6
         data = df.iloc[start_index:end_index]
         print(data)
         new_answer = input("Do you want to see more 5 lines of raw data?\n").lower()
+        # Continue prompting and printing the next 5 rows at a time until the user chooses 'no'
         while new_answer != 'no':
             start_index += 5
             end_index += 5
