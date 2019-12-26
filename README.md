@@ -15,3 +15,4 @@ Use Python to understand U.S. bikeshare data. Calculate statistics and build int
 ### Credits
 - [https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) taught me something about **Markdown**"
 - [https://www.learndatasci.com/tutorials/python-pandas-tutorial-complete-introduction-for-beginners/](https://www.learndatasci.com/tutorials/python-pandas-tutorial-complete-introduction-for-beginners/) for the  **Pandas** package
+- [https://git-scm.com/docs/gittutorial](https://git-scm.com/docs/gittutorial)
