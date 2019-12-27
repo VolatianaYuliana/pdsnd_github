@@ -40,7 +40,7 @@ def get_filters():
     return city, month, day
 
 
-def convert_to_datetime(dataframe, column):
+def convertToDatetime(dataframe, column):
     """
     Convert data in one column into datetime type
 
@@ -57,7 +57,7 @@ def load_data(city, month, day):
     df = pd.read_csv(CITY_DATA[city])
 
     # convert the Start Time column to datetime
-    convert_to_datetime(df, 'Start Time')
+    convertToDatetime(df, 'Start Time')
 
     # extract month,day of week, and hour from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
@@ -85,21 +85,21 @@ def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
-    start_time = time.time()
+    startTime = time.time()
 
     # Display the most common month
-    popular_month = df['month'].mode()[0]
-    print('Most Popular Month: ', popular_month)
+    popularMonth = df['month'].mode()[0]
+    print('Most Popular Month: ', popularMonth)
 
     # Display the most common day of week
-    popular_day = df['day_of_week'].mode()[0]
-    print('\n Most Popular Day of week: ', popular_day)
+    popularDay = df['day_of_week'].mode()[0]
+    print('\n Most Popular Day of week: ', popularDay)
 
     # Display the most common start hour
-    popular_hour = df['hour'].mode()[0]
-    print('\n Most Popular Start Hour: ', popular_hour)
+    popularHour = df['hour'].mode()[0]
+    print('\n Most Popular Start Hour: ', popularHour)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % (time.time() - startTime))
     print('-'*40)
 
 
@@ -107,23 +107,23 @@ def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
-    start_time = time.time()
+    startTime = time.time()
 
     # Display most commonly used start station
-    popular_start_station = df['Start Station'].mode()[0]
-    print('The most commonly used start station: ', popular_start_station)
+    popularStartStation = df['Start Station'].mode()[0]
+    print('The most commonly used start station: ', popularStartStation)
 
     # Display most commonly used end station
-    popular_end_station = df['End Station'].mode()[0]
-    print('\n The most commonly used end station: ', popular_end_station)
+    popularEndStation = df['End Station'].mode()[0]
+    print('\n The most commonly used end station: ', popularEndStation)
 
     # Display most frequent combination of start station and end station trip
-    popular_combination = df.groupby(
+    popularCombination = df.groupby(
         ['Start Station', 'End Station']).size().idxmax()
     print('\n The most frequent combination of start station and end station trip: ',
-          popular_combination)
+          popularCombination)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % (time.time() - startTime))
     print('-'*40)
 
 
@@ -131,24 +131,24 @@ def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
     print('\nCalculating Trip Duration...\n')
-    start_time = time.time()
+    startTime = time.time()
 
     # convert the Start Time  and End column to datetime
-    convert_to_datetime(df, 'Start Time')
-    convert_to_datetime(df, 'End Time')
+    convertToDatetime(df, 'Start Time')
+    convertToDatetime(df, 'End Time')
 
     # Create a column Travel Time
     df['Travel Time'] = df['End Time'] - df['Start Time']
 
     # Display total travel time
-    sum_travel = df['Travel Time'].sum()
-    print("The total travel time: ", sum_travel)
+    sumTravel = df['Travel Time'].sum()
+    print("The total travel time: ", sumTravel)
 
     # Display mean travel time
-    mean_travel = df['Travel Time'].mean()
-    print("\nThe mean travel time: ", mean_travel)
+    meanTravel = df['Travel Time'].mean()
+    print("\nThe mean travel time: ", meanTravel)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % (time.time() - startTime))
     print('-'*40)
 
 
@@ -156,11 +156,11 @@ def user_stats(df, city):
     """Displays statistics on bikeshare users."""
 
     print('\nCalculating User Stats...\n')
-    start_time = time.time()
+    startTime = time.time()
 
     # Display counts of user types
-    user_types = df['User Type'].value_counts()
-    print("This is the count of each type of user: \n", user_types)
+    userTypes = df['User Type'].value_counts()
+    print("This is the count of each type of user: \n", userTypes)
 
     # Display counts of gender for New York City and Chicago
     if city != 'washington':
@@ -168,12 +168,12 @@ def user_stats(df, city):
         print("\nThis is the count of each gender: \n", gender)
 
         # Display earliest, most recent, and most common year of birth
-        popular_year = df['Birth Year'].mode()[0]
-        print("\nThe most common year of birth: ", popular_year)
+        popularYear = df['Birth Year'].mode()[0]
+        print("\nThe most common year of birth: ", popularYear)
         print("\nThe earliest year of birth:", df['Birth Year'].min())
         print("\nThe most recent year of birth:", df['Birth Year'].max())
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % (time.time() - startTime))
     print('-'*40)
 
 
@@ -184,17 +184,17 @@ def display_data(df):
     """
     answer = input("Do you want to see raw data?(yes or no)\n").lower()
     if answer == 'yes':
-        start_index = 0
-        end_index = 6
-        data = df.iloc[start_index:end_index]
+        startIndex = 0
+        endIndex = 6
+        data = df.iloc[startIndex:endIndex]
         print(data)
-        new_answer = input("Do you want to see more 5 lines of raw data?\n").lower()
-        while new_answer != 'no':
-            start_index += 5
-            end_index += 5
-            new_data = df.iloc[start_index:end_index]
-            print(new_data)
-            new_answer = input("Do you want to see more 5 lines of raw data?\n").lower()
+        newAnswer = input("Do you want to see more 5 lines of raw data?\n").lower()
+        while newAnswer != 'no':
+            startIndex += 5
+            endIndex += 5
+            newData = df.iloc[startIndex:endIndex]
+            print(newData)
+            newAnswer = input("Do you want to see more 5 lines of raw data?\n").lower()
 
 
 def main():
